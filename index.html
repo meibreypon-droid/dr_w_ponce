@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. W Ponce | Medicina Integral & Ocupacional</title>
+    <meta name="description" content="Dr. W Ponce - Médico Especialista en Medicina General Integral y Medicina Ocupacional con más de 10 años de experiencia en Venezuela.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#f0f4f8',
+                            100: '#d9e2ec',
+                            200: '#bcccdc',
+                            300: '#9fb3c8',
+                            400: '#829ab1',
+                            500: '#627d98',
+                            600: '#486581',
+                            700: '#334e68',
+                            800: '#243b53',
+                            900: '#1e3a5f',
+                            950: '#102a43',
+                        },
+                        accent: {
+                            50: '#e0fcff',
+                            100: '#bef8fd',
+                            200: '#87eaf2',
+                            300: '#54d1db',
+                            400: '#38bec9',
+                            500: '#0d7377',
+                            600: '#0a5f63',
+                            700: '#094c4f',
+                        },
+                        gold: {
+                            100: '#fbf5dc',
+                            200: '#f5eaba',
+                            300: '#eddb8e',
+                            400: '#dcc060',
+                            500: '#c9a227',
+                            600: '#b08d1f',
+                        },
+                        cream: '#f8f6f0',
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-effect {
+            background: rgba(248, 246, 240, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        .dark .glass-effect {
+            background: rgba(30, 58, 95, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #1e3a5f 0%, #0d7377 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .service-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(30, 58, 95, 0.25);
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: linear-gradient(90deg, #c9a227, #0d7377);
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #1e3a5f 0%, #0d7377 100%);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            box-shadow: 0 10px 30px -10px rgba(30, 58, 95, 0.5);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased bg-cream dark:bg-primary-950 text-primary-900 dark:text-cream transition-colors duration-300">
+
+    <!-- Navegación -->
+    <nav class="fixed w-full z-50 glass-effect transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                <div class="flex-shrink-0 flex items-center gap-4 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <div class="w-12 h-12 bg-gradient-to-br from-primary-900 to-accent-600 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg border-2 border-gold-400">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <div>
+                        <h1 class="font-serif text-2xl font-bold text-primary-900 dark:text-cream tracking-wide">Dr. W Ponce</h1>
+                        <p class="text-xs text-accent-600 dark:text-accent-400 font-medium tracking-widest uppercase">Medicina Integral</p>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex space-x-10 items-center">
+                    <a href="#inicio" class="nav-link text-primary-700 dark:text-cream/80 hover:text-primary-900 dark:hover:text-cream font-medium transition tracking-wide text-sm uppercase">Inicio</a>
+                    <a href="#sobre-mi" class="nav-link text-primary-700 dark:text-cream/80 hover:text-primary-900 dark:hover:text-cream font-medium transition tracking-wide text-sm uppercase">Sobre Mí</a>
+                    <a href="#servicios" class="nav-link text-primary-700 dark:text-cream/80 hover:text-primary-900 dark:hover:text-cream font-medium transition tracking-wide text-sm uppercase">Servicios</a>
+                    <a href="#experiencia" class="nav-link text-primary-700 dark:text-cream/80 hover:text-primary-900 dark:hover:text-cream font-medium transition tracking-wide text-sm uppercase">Experiencia</a>
+                    <a href="#contacto" class="nav-link text-primary-700 dark:text-cream/80 hover:text-primary-900 dark:hover:text-cream font-medium transition tracking-wide text-sm uppercase">Contacto</a>
+                    
+                    <button onclick="toggleDarkMode()" class="p-2 rounded-full hover:bg-primary-100 dark:hover:bg-primary-800 transition text-primary-700 dark:text-cream">
+                        <i class="fas fa-moon dark:hidden text-lg"></i>
+                        <i class="fas fa-sun hidden dark:block text-gold-400 text-lg"></i>
+                    </button>
+                    
+                    <a href="https://wa.me/584163808270?text=Hola%20Dr.%20W%20Ponce,%20me%20gustaría%20agendar%20una%20consulta" target="_blank" class="btn-primary text-white px-8 py-3 rounded-full font-medium hover:shadow-lg transition transform flex items-center gap-2">
+                        <i class="fab fa-whatsapp"></i>
+                        <span class="tracking-wide">Agendar</span>
+                    </a>
+                </div>
+
+                <div class="md:hidden flex items-center gap-4">
+                    <button onclick="toggleDarkMode()" class="p-2 rounded-full hover:bg-primary-100 dark:hover:bg-primary-800 transition">
+                        <i class="fas fa-moon dark:hidden text-primary-700 text-lg"></i>
+                        <i class="fas fa-sun hidden dark:block text-gold-400 text-lg"></i>
+                    </button>
+                    <button onclick="toggleMobileMenu()" class="text-primary-700 dark:text-cream text-2xl">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menú móvil -->
+        <div id="mobile-menu" class="hidden md:hidden glass-effect border-t border-primary-200 dark:border-primary-800">
+            <div class="px-4 pt-4 pb-8 space-y-3">
+                <a href="#inicio" class="block px-4 py-3 rounded-lg text-primary-700 dark:text-cream hover:bg-primary-50 dark:hover:bg-primary-900 font-medium tracking-wide">Inicio</a>
+                <a href="#sobre-mi" class="block px-4 py-3 rounded-lg text-primary-700 dark:text-cream hover:bg-primary-50 dark:hover:bg-primary-900 font-medium tracking-wide">Sobre Mí</a>
+                <a href="#servicios" class="block px-4 py-3 rounded-lg text-primary-700 dark:text-cream hover:bg-primary-50 dark:hover:bg-primary-900 font-medium tracking-wide">Servicios</a>
+                <a href="#experiencia" class="block px-4 py-3 rounded-lg text-primary-700 dark:text-cream hover:bg-primary-50 dark:hover:bg-primary-900 font-medium tracking-wide">Experiencia</a>
+                <a href="https://wa.me/584163808270?text=Hola%20Dr.%20W%20Ponce,%20me%20gustaría%20agendar%20una%20consulta" target="_blank" class="block px-4 py-3 rounded-lg bg-gradient-to-r from-primary-900 to-accent-600 text-white font-bold tracking-wide text-center">
+                    Agendar Cita
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="relative min-h-screen flex items-center pt-24 overflow-hidden bg-gradient-to-br from-cream via-white to-primary-50 dark:from-primary-950 dark:via-primary-900 dark:to-primary-950">
+        <div class="absolute inset-0 -z-10">
+            <div class="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-bl from-primary-100/40 to-transparent dark:from-primary-800/20"></div>
+            <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-accent-100/20 dark:bg-accent-900/10 rounded-full blur-3xl"></div>
+            <div class="absolute top-1/3 left-1/4 w-96 h-96 bg-gold-100/20 dark:bg-gold-900/10 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 grid md:grid-cols-2 gap-16 items-center">
+            <div class="space-y-8 animate-slide-up">
+                <div class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white dark:bg-primary-800 shadow-md border border-gold-200 dark:border-gold-700/30">
+                    <span class="w-2.5 h-2.5 bg-accent-500 rounded-full animate-pulse"></span>
+                    <span class="text-primary-700 dark:text-cream text-sm font-medium tracking-wide uppercase">Disponible para consultas</span>
+                </div>
+                
+                <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-primary-900 dark:text-cream">
+                    Excelencia médica para tu <span class="gradient-text">bienestar</span>
+                </h1>
+                
+                <p class="text-xl text-primary-600 dark:text-cream/70 leading-relaxed max-w-lg font-light">
+                    Dr. W Ponce, médico especialista con doble especialización en Medicina General Integral y Medicina Ocupacional. Más de una década de experiencia dedicada a la salud en Venezuela.
+                </p>
+
+                <div class="flex flex-wrap gap-4">
+                    <a href="https://wa.me/584163808270?text=Hola%20Dr.%20W%20Ponce,%20me%20gustaría%20agendar%20una%20consulta" target="_blank" class="group btn-primary text-white px-8 py-4 rounded-full font-semibold text-lg flex items-center gap-3 shadow-xl">
+                        <i class="fab fa-whatsapp text-xl"></i>
+                        <span>Consulta Privada</span>
+                        <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                    <a href="#servicios" class="px-8 py-4 rounded-full font-semibold text-lg border-2 border-primary-900 dark:border-cream text-primary-900 dark:text-cream hover:bg-primary-900 hover:text-white dark:hover:bg-cream dark:hover:text-primary-900 transition duration-300">
+                        Servicios Médicos
+                    </a>
+                </div>
+
+                <div class="flex items-center gap-8 pt-6 border-t border-primary-200 dark:border-primary-800">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-primary-900 dark:text-cream">+10</div>
+                        <div class="text-sm text-primary-600 dark:text-cream/60 uppercase tracking-wider">Años</div>
+                    </div>
+                    <div class="w-px h-12 bg-primary-200 dark:border-primary-700"></div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-primary-900 dark:text-cream">2</div>
+                        <div class="text-sm text-primary-600 dark:text-cream/60 uppercase tracking-wider">Especialidades</div>
+                    </div>
+                    <div class="w-px h-12 bg-primary-200 dark:border-primary-700"></div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-primary-900 dark:text-cream">2k+</div>
+                        <div class="text-sm text-primary-600 dark:text-cream/60 uppercase tracking-wider">Pacientes</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative">
+                <div class="relative z-10 bg-white dark:bg-primary-800 rounded-3xl shadow-2xl p-3 transform rotate-1 hover:rotate-0 transition duration-700 border border-gold-200/50 dark:border-gold-700/30">
+                    <div class="bg-primary-50 dark:bg-primary-900 rounded-2xl overflow-hidden aspect-[4/5] relative group">
+                        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=800&auto=format&fit=crop&q=80" alt="Dr. W Ponce" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-primary-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                        <div class="absolute bottom-6 left-6 right-6 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition duration-500">
+                            <div class="bg-white/95 dark:bg-primary-800/95 backdrop-blur-sm p-4 rounded-xl border-l-4 border-gold-500">
+                                <p class="text-primary-900 dark:text-cream font-serif italic">"Comprometido con tu salud integral"</p>
+                                <p class="text-accent-600 dark:text-accent-400 text-sm font-bold mt-1">- Dr. W Ponce</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="absolute -bottom-8 -left-8 bg-white dark:bg-primary-800 p-5 rounded-2xl shadow-2xl animate-pulse-slow z-20 border border-gold-100 dark:border-gold-700/30">
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 bg-gradient-to-br from-gold-400 to-gold-600 rounded-full flex items-center justify-center text-white shadow-lg">
+                            <i class="fas fa-award text-2xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-primary-500 dark:text-cream/60 uppercase tracking-wider">Certificación</p>
+                            <p class="font-bold text-primary-900 dark:text-cream text-lg">Doble Especialidad</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="absolute -top-8 -right-8 bg-white dark:bg-primary-800 p-5 rounded-2xl shadow-2xl animate-pulse-slow z-20 border border-gold-100 dark:border-gold-700/30" style="animation-delay: 1.5s;">
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 bg-gradient-to-br from-accent-500 to-accent-700 rounded-full flex items-center justify-center text-white shadow-lg">
+                            <i class="fas fa-star text-2xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-primary-500 dark:text-cream/60 uppercase tracking-wider">Experiencia</p>
+                            <p class="font-bold text-primary-900 dark:text-cream text-lg">+10 Años</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Estadísticas -->
+    <section class="py-16 bg-white dark:bg-primary-900 border-y border-primary-100 dark:border-primary-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="scroll-reveal p-6 rounded-2xl bg-primary-50 dark:bg-primary-800/50">
+                    <div class="text-4xl font-bold text-primary-900 dark:text-cream mb-2 counter" data-target="10">0</div>
+                    <p class="text-primary-600 dark:text-cream/60 text-sm uppercase tracking-wider">Años de Experiencia</p>
+                </div>
+                <div class="scroll-reveal p-6 rounded-2xl bg-accent-50 dark:bg-accent-900/20" style="transition-delay: 100ms;">
+                    <div class="text-4xl font-bold text-accent-700 dark:text-accent-400 mb-2 counter" data-target="2">0</div>
+                    <p class="text-primary-600 dark:text-cream/60 text-sm uppercase tracking-wider">Especialidades</p>
+                </div>
+                <div class="scroll-reveal p-6 rounded-2xl bg-gold-50 dark:bg-gold-900/20" style="transition-delay: 200ms;">
+                    <div class="text-4xl font-bold text-gold-600 dark:text-gold-400 mb-2 counter" data-target="50">0</div>
+                    <p class="text-primary-600 dark:text-cream/60 text-sm uppercase tracking-wider">Empresas</p>
+                </div>
+                <div class="scroll-reveal p-6 rounded-2xl bg-primary-50 dark:bg-primary-800/50" style="transition-delay: 300ms;">
+                    <div class="text-4xl font-bold text-primary-900 dark:text-cream mb-2 counter" data-target="2000">0</div>
+                    <p class="text-primary-600 dark:text-cream/60 text-sm uppercase tracking-wider">Pacientes Atendidos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Mí -->
+    <section id="sobre-mi" class="py-24 bg-cream dark:bg-primary-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="scroll-reveal relative">
+                    <div class="absolute -inset-4 bg-gradient-to-r from-primary-600 to-accent-600 rounded-3xl opacity-10 blur-2xl"></div>
+                    <div class="relative bg-white dark:bg-primary-800 p-3 rounded-3xl shadow-2xl border border-gold-200/30 dark:border-gold-700/20">
+                        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&auto=format&fit=crop&q=80" alt="Dr. W Ponce" class="rounded-2xl w-full object-cover h-[600px]">
+                    </div>
+                    
+                    <div class="absolute -bottom-6 -right-6 bg-white dark:bg-primary-800 p-6 rounded-2xl shadow-xl border-l-4 border-gold-500 max-w-xs">
+                        <i class="fas fa-quote-left text-gold-400 text-2xl mb-3"></i>
+                        <p class="text-primary-700 dark:text-cream/90 italic font-serif">"La medicina es el arte de curar, pero también de prevenir y educar para una vida más saludable."</p>
+                        <p class="text-accent-600 dark:text-accent-400 font-bold mt-3 text-sm uppercase tracking-wider">Dr. W Ponce</p>
+                    </div>
+                </div>
+
+                <div class="scroll-reveal space-y-6">
+                    <div class="inline-block px-4 py-1.5 rounded-full bg-accent-100 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300 text-sm font-semibold tracking-wide uppercase">
+                        Sobre Mí
+                    </div>
+                    <h2 class="font-serif text-4xl md:text-5xl font-bold text-primary-900 dark:text-cream leading-tight">
+                        Dr. W Ponce: <span class="gradient-text">Excelencia y compromiso</span> con tu salud
+                    </h2>
+                    <p class="text-lg text-primary-600 dark:text-cream/70 leading-relaxed font-light">
+                        Soy el <strong class="text-primary-900 dark:text-cream">Dr. W Ponce</strong>, médico especialista venezolano con formación rigurosa en dos áreas fundamentales: la <span class="text-accent-600 dark:text-accent-400 font-semibold">Medicina General Integral</span> y la <span class="text-accent-600 dark:text-accent-400 font-semibold">Medicina Ocupacional</span>.
+                    </p>
+                    <p class="text-lg text-primary-600 dark:text-cream/70 leading-relaxed font-light">
+                        Con más de 10 años de experiencia practicando en Venezuela, mi enfoque combina la evidencia científica más actual con una atención humanizada de primer nivel.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-6 pt-6">
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-white dark:bg-primary-800 shadow-md border border-primary-100 dark:border-primary-700">
+                            <div class="w-12 h-12 rounded-lg bg-primary-100 dark:bg-primary-700 flex items-center justify-center text-primary-700 dark:text-cream flex-shrink-0">
+                                <i class="fas fa-user-check text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-primary-900 dark:text-cream">Atención Personalizada</h4>
+                                <p class="text-sm text-primary-600 dark:text-cream/60">Cada paciente es único</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-white dark:bg-primary-800 shadow-md border border-primary-100 dark:border-primary-700">
+                            <div class="w-12 h-12 rounded-lg bg-accent-100 dark:bg-accent-900/30 flex items-center justify-center text-accent-700 dark:text-accent-400 flex-shrink-0">
+                                <i class="fas fa-shield-virus text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-primary-900 dark:text-cream">Prevención Laboral</h4>
+                                <p class="text-sm text-primary-600 dark:text-cream/60">Medicina ocupacional</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-white dark:bg-primary-800 shadow-md border border-primary-100 dark:border-primary-700">
+                            <div class="w-12 h-12 rounded-lg bg-gold-100 dark:bg-gold-900/20 flex items-center justify-center text-gold-700 dark:text-gold-400 flex-shrink-0">
+                                <i class="fas fa-stethoscope text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-primary-900 dark:text-cream">Experiencia</h4>
+                                <p class="text-sm text-primary-600 dark:text-cream/60">+10 años de práctica</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-white dark:bg-primary-800 shadow-md border border-primary-100 dark:border-primary-700">
+                            <div class="w-12 h-12 rounded-lg bg-primary-100 dark:bg-primary-700 flex items-center justify-center text-primary-700 dark:text-cream flex-shrink-0">
+                                <i class="fas fa-heart text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-primary-900 dark:text-cream">Humanización</h4>
+                                <p class="text-sm text-primary-600 dark:text-cream/60">Trato cercano y empático</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-6">
+                        <a href="https://wa.me/584163808270?text=Hola%20Dr.%20W%20Ponce,%20me%20gustaría%20conocer%20más%20sobre%20sus%20servicios" target="_blank" class="inline-flex items-center gap-3 text-accent-600 dark:text-accent-400 font-semibold hover:gap-4 transition-all text-lg">
+                            Contactar para consulta <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios -->
+    <section id="servicios" class="py-24 bg-white dark:bg-primary-900 relative overflow-hidden">
+        <div class="absolute inset-0 -z-10">
+            <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold-400 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold-400 to-transparent"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 scroll-reveal">
+                <div class="inline-block px-5 py-2 rounded-full bg-gold-100 dark:bg-gold-900/20 text-gold-700 dark:text-gold-400 text-sm font-semibold tracking-wide uppercase mb-4 border border-gold-200 dark:border-gold-700/30">
+                    Servicios Especializados
+                </div>
+                <h2 class="font-serif text-4xl md:text-5xl font-bold text-primary-900 dark:text-cream mb-6">
+                    Atención médica de <span class="gradient-text">excelencia</span>
+                </h2>
+                <p class="text-lg text-primary-600 dark:text-cream/70 font-light">
+                    Servicios médicos especializados para pacientes individuales y empresas en Venezuela.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Medicina General -->
+                <div class="scroll-reveal service-card bg-cream dark:bg-primary-800 rounded-3xl p-8 border border-gold-200/30 dark:border-gold-700/20 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-primary-100/50 to-transparent dark:from-primary-700/20 rounded-full -mr-20 -mt-20 transition-transform group-hover:scale-150"></div>
+                    
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 bg-gradient-to-br from-primary-800 to-primary-600 rounded-2xl flex items-center justify-center text-white text-2xl mb-6 shadow-lg border border-gold-400/30">
+                            <i class="fas fa-stethoscope"></i>
+                        </div>
+                        
+                        <h3 class="font-serif text-2xl font-bold text-primary-900 dark:text-cream mb-4">Medicina General Integral</h3>
+                        <p class="text-primary-600 dark:text-cream/70 mb-8 font-light leading-relaxed">
+                            Atención médica completa que abarca la prevención, diagnóstico y tratamiento de enfermedades, considerando al paciente como un todo biopsicosocial.
+                        </p>
+                        
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-center gap-3 text-primary-700 dark:text-cream/80">
+                                <div class="w-6 h-6 rounded-full bg-accent-100 dark:bg-accent-900/30 flex items-center justify-center text-accent-600 dark:text-accent-400 text-xs">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                Consulta médica completa y especializada
+                            </li>
+                            <li class="flex items-center gap-3 text-primary-700 dark:text-cream/80">
+                                <div class="w-6 h-6 rounded-full bg-accent-100 dark:bg-accent-900/30 flex items-center justify-center text-accent-600 dark:text-accent-400 text-xs">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                Prevención y detección temprana de enfermedades
+                            </li>
+                            <li class="flex items-center gap-3 text-primary-700 dark:text-cream/80">
+                                <div class="w-6 h-6 rounded-full bg-accent-100 dark:bg-accent-900/30 flex items-center justify-center text-accent-600 dark:text-accent-400 text-xs">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                Manejo de enfermedades crónicas
+                            </li>
+                            <li class="flex items-center gap-3 text-primary-700 dark:text-cream/80">
+                                <div class="w-6 h-6 rounded-full bg-accent-100 dark:bg-accent-900/30 flex items-center justify-center text-accent-600 dark:text-accent-400 text-xs">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                Certificados médicos con validez oficial
+                            </li>
+                        </ul>
+                        
+                        <button onclick="showServiceDetail('general')" class="w-full py-3.5 rounded-xl border-2 border-primary-900 dark:border-cream text-primary-900 dark:text-cream font-semibold hover:bg-primary-900 hover:text-white dark:hover:bg-cream dark:hover:text-primary-900 transition duration-300 tracking-wide">
+                            Ver detalles completos
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Medicina Ocupacional -->
+                <div class="scroll-reveal service-card bg-cream dark:bg-primary-800 rounded-3xl p-8 border border-gold-200/30 dark:border-gold-700/20 relative overflow-hidden group" style="transition-delay: 100ms;">
+                    <div class="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-accent-100/50 to-transparent dark:from-accent-700/20 rounded-full -mr-20 -mt-20 transition-transform group-hover:scale-150"></div>
+                    
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 bg-gradient-to-br from-accent-600 to-accent-800 rounded-2xl flex items-center justify-center text-white text-2xl mb-6 shadow-lg border border-gold-400/30">
+                            <i class="fas fa-hard-hat"></i>
+                        </div>
+                        
+                        <h3 class="font-serif text-2xl font-bold text-primary-900 dark:text-cream mb-4">Medicina Ocupacional</h3>
+                        <p class="text-primary-600 dark:text-cream/70 mb-8 font-light leading-relaxed">
+                            Servicios especializados para empresas venezolanas, enfocados en la prevención de riesgos laborales y cumplimiento normativo de excelencia.
+                        </p>
+                        
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-center gap-3 text-primary-700 dark:text-cream/80">
+                                <div class="w-6 h-6 rounded-full bg-gold-100 dark:bg-gold-900/20 flex items-center justify-center text-gold-600 dark:text-gold-400 text-xs">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                Exámenes médicos ocupacionales completos
+                            </li>
+                            <li class="flex items-center gap-3 text-primary-700 dark:text-cream/80">
+                                <div class="w-6 h-6 rounded-full bg-gold-100 dark:bg-gold-900/20 flex items-center justify-center text-gold-600 dark:text-gold-400 text-xs">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                Valoración de aptitud física y mental
+                            </li>
+                            <li class="flex items-center gap-3 text-primary-700 dark:text-cream/80">
+                                <div class="w-6 h-6 rounded-full bg-gold-100 dark:bg-gold-900/20 flex items-center justify-center text-gold-600 dark:text-gold-400 text-xs">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                Programas de vigilancia epidemiológica
+                            </li>
+                            <li class="flex items-center gap-3 text-primary-700 dark:text-cream/80">
+                                <div class="w-6 h-6 rounded-full bg-gold-100 dark:bg-gold-900/20 flex items-center justify-center text-gold-600 dark:text-gold-400 text-xs">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                Asesoría en higiene y seguridad industrial
+                            </li>
+                        </ul>
+                        
+                        <button onclick="showServiceDetail('ocupacional')" class="w-full py-3.5 rounded-xl border-2 border-accent-600 dark:border-accent-400 text-accent-700 dark:text-accent-400 font-semibold hover:bg-accent-600 hover:text-white dark:hover:bg-accent-600 dark:hover:text-white transition duration-300 tracking-wide">
+                            Ver detalles completos
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Servicios Adicionales -->
+            <div class="mt-12 grid md:grid-cols-3 gap-6 scroll-reveal">
+                <div class="bg-cream dark:bg-primary-800 p-6 rounded-2xl shadow-lg hover:shadow-xl transition border border-gold-200/30 dark:border-gold-700/20 text-center group cursor-pointer" onclick="window.open('https://wa.me/584163808270?text=Hola%20Dr.%20W%20Ponce,%20me%20interesa%20información%20sobre%20certificados%20médicos', '_blank')">
+                    <div class="w-16 h-16 mx-auto bg-primary-100 dark:bg-primary-700 rounded-full flex items-center justify-center text-primary-700 dark:text-cream text-2xl mb-4 group-hover:scale-110 transition shadow-md">
+                        <i class="fas fa-file-medical"></i>
+                    </div>
+                    <h4 class="font-bold text-primary-900 dark:text-cream mb-2">Certificados Médicos</h4>
+                    <p class="text-sm text-primary-600 dark:text-cream/60">Emisión de certificados laborales y de salud con validez oficial</p>
+                </div>
+
+                <div class="bg-cream dark:bg-primary-800 p-6 rounded-2xl shadow-lg hover:shadow-xl transition border border-gold-200/30 dark:border-gold-700/20 text-center group cursor-pointer" onclick="window.open('https://wa.me/584163808270?text=Hola%20Dr.%20W%20Ponce,%20me%20interesa%20información%20sobre%20visitas%20domiciliarias', '_blank')">
+                    <div class="w-16 h-16 mx-auto bg-accent-100 dark:bg-accent-900/20 rounded-full flex items-center justify-center text-accent-700 dark:text-accent-400 text-2xl mb-4 group-hover:scale-110 transition shadow-md">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h4 class="font-bold text-primary-900 dark:text-cream mb-2">Visitas Domiciliarias</h4>
+                    <p class="text-sm text-primary-600 dark:text-cream/60">Atención médica en la comodidad de tu hogar</p>
+                </div>
+
+                <div class="bg-cream dark:bg-primary-800 p-6 rounded-2xl shadow-lg hover:shadow-xl transition border border-gold-200/30 dark:border-gold-700/20 text-center group cursor-pointer" onclick="window.open('https://wa.me/584163808270?text=Hola%20Dr.%20W%20Ponce,%20me%20interesa%20información%20sobre%20capacitaciones', '_blank')">
+                    <div class="w-16 h-16 mx-auto bg-gold-100 dark:bg-gold-900/20 rounded-full flex items-center justify-center text-gold-700 dark:text-gold-400 text-2xl mb-4 group-hover:scale-110 transition shadow-md">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h4 class="font-bold text-primary-900 dark:text-cream mb-2">Capacitaciones</h4>
+                    <p class="text-sm text-primary-600 dark:text-cream/60">Formación en primeros auxilios y prevención</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experiencia -->
+    <section id="experiencia" class="py-24 bg-cream dark:bg-primary-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 scroll-reveal">
+                <div class="inline-block px-5 py-2 rounded-full bg-primary-100 dark:bg-primary-800 text-primary-700 dark:text-cream text-sm font-semibold tracking-wide uppercase mb-4">
+                    Trayectoria Profesional
+                </div>
+                <h2 class="font-serif text-4xl md:text-5xl font-bold text-primary-900 dark:text-cream mb-6">
+                    Formación y experiencia <span class="gradient-text">del Dr. W Ponce</span>
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Timeline -->
+                <div class="space-y-8 scroll-reveal">
+                    <h3 class="text-2xl font-bold text-primary-900 dark:text-cream mb-6 flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-full bg-primary-100 dark:bg-primary-800 flex items-center justify-center text-primary-700 dark:text-cream">
+                            <i class="fas fa-graduation-cap text-xl"></i>
+                        </div>
+                        Formación Académica
+                    </h3>
+                    
+                    <div class="relative border-l-2 border-gold-400 dark:border-gold-600 ml-6 space-y-8">
+                        <div class="relative pl-8">
+                            <div class="absolute -left-3 top-1.5 w-6 h-6 rounded-full bg-gold-500 border-4 border-cream dark:border-primary-950 shadow-md"></div>
+                            <div class="bg-white dark:bg-primary-800 p-6 rounded-2xl shadow-lg border border-gold-100 dark:border-gold-700/20">
+                                <span class="text-xs font-bold text-gold-600 dark:text-gold-400 uppercase tracking-wider">Especialización</span>
+                                <h4 class="text-lg font-bold text-primary-900 dark:text-cream mt-2">Medicina Ocupacional</h4>
+                                <p class="text-primary-600 dark:text-cream/60 mt-2 text-sm">Especialización en Higiene del Ambiente Laboral y prevención de riesgos.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="relative pl-8">
+                            <div class="absolute -left-3 top-1.5 w-6 h-6 rounded-full bg-accent-500 border-4 border-cream dark:border-primary-950 shadow-md"></div>
+                            <div class="bg-white dark:bg-primary-800 p-6 rounded-2xl shadow-lg border border-accent-100 dark:border-accent-700/20">
+                                <span class="text-xs font-bold text-accent-600 dark:text-accent-400 uppercase tracking-wider">Especialización</span>
+                                <h4 class="text-lg font-bold text-primary-900 dark:text-cream mt-2">Medicina General Integral</h4>
+                                <p class="text-primary-600 dark:text-cream/60 mt-2 text-sm">Enfoque holístico en atención médica y medicina familiar.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="relative pl-8">
+                            <div class="absolute -left-3 top-1.5 w-6 h-6 rounded-full bg-primary-400 border-4 border-cream dark:border-primary-950 shadow-md"></div>
+                            <div class="bg-white dark:bg-primary-800 p-6 rounded-2xl shadow-lg border border-primary-100 dark:border-primary-700">
+                                <span class="text-xs font-bold text-primary-500 dark:text-primary-400 uppercase tracking-wider">Pregrado</span>
+                                <h4 class="text-lg font-bold text-primary-900 dark:text-cream mt-2">Doctor en Medicina</h4>
+                                <p class="text-primary-600 dark:text-cream/60 mt-2 text-sm">Formación médica general con énfasis en atención primaria.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Habilidades -->
+                <div class="space-y-8 scroll-reveal" style="transition-delay: 200ms;">
+                    <h3 class="text-2xl font-bold text-primary-900 dark:text-cream mb-6 flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-full bg-accent-100 dark:bg-accent-900/20 flex items-center justify-center text-accent-700 dark:text-accent-400">
+                            <i class="fas fa-chart-line text-xl"></i>
+                        </div>
+                        Áreas de Experticia
+                    </h3>
+
+                    <div class="space-y-6">
+                        <div class="bg-white dark:bg-primary-800 p-6 rounded-2xl shadow-md border border-primary-100 dark:border-primary-700">
+                            <div class="flex justify-between items-center mb-3">
+                                <h4 class="font-semibold text-primary-900 dark:text-cream">Medicina Preventiva</h4>
+                                <span class="text-gold-600 dark:text-gold-400 font-bold">95%</span>
+                            </div>
+                            <div class="w-full bg-primary-100 dark:bg-primary-700 rounded-full h-2.5">
+                                <div class="bg-gradient-to-r from-primary-600 to-accent-500 h-2.5 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white dark:bg-primary-800 p-6 rounded-2xl shadow-md border border-primary-100 dark:border-primary-700">
+                            <div class="flex justify-between items-center mb-3">
+                                <h4 class="font-semibold text-primary-900 dark:text-cream">Salud Ocupacional</h4>
+                                <span class="text-gold-600 dark:text-gold-400 font-bold">98%</span>
+                            </div>
+                            <div class="w-full bg-primary-100 dark:bg-primary-700 rounded-full h-2.5">
+                                <div class="bg-gradient-to-r from-primary-600 to-accent-500 h-2.5 rounded-full" style="width: 98%"></div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white dark:bg-primary-800 p-6 rounded-2xl shadow-md border border-primary-100 dark:border-primary-700">
+                            <div class="flex justify-between items-center mb-3">
+                                <h4 class="font-semibold text-primary-900 dark:text-cream">Gestión de Riesgos</h4>
+                                <span class="text-gold-600 dark:text-gold-400 font-bold">92%</span>
+                            </div>
+                            <div class="w-full bg-primary-100 dark:bg-primary-700 rounded-full h-2.5">
+                                <div class="bg-gradient-to-r from-primary-600 to-accent-500 h-2.5 rounded-full" style="width: 92%"></div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white dark:bg-primary-800 p-6 rounded-2xl shadow-md border border-primary-100 dark:border-primary-700">
+                            <div class="flex justify-between items-center mb-3">
+                                <h4 class="font-semibold text-primary-900 dark:text-cream">Atención Primaria</h4>
+                                <span class="text-gold-600 dark:text-gold-400 font-bold">96%</span>
+                            </div>
+                            <div class="w-full bg-primary-100 dark:bg-primary-700 rounded-full h-2.5">
+                                <div class="bg-gradient-to-r from-primary-600 to-accent-500 h-2.5 rounded-full" style="width: 96%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-primary-900 to-accent-800 rounded-2xl p-6 text-white shadow-xl border border-gold-400/30">
+                        <h4 class="font-bold text-lg mb-4 flex items-center gap-3">
+                            <i class="fas fa-award text-gold-400"></i>
+                            Membresías Profesionales
+                        </h4>
+                        <ul class="space-y-3 text-cream/90">
+                            <li class="flex items-center gap-3">
+                                <i class="fas fa-check-circle text-gold-400 text-sm"></i>
+                                Colegio de Médicos de Venezuela
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fas fa-check-circle text-gold-400 text-sm"></i>
+                                Sociedad Venezolana de Medicina Ocupacional
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fas fa-check-circle text-gold-400 text-sm"></i>
+                                Asociación de Medicina General Integral
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="py-24 bg-white dark:bg-primary-900 relative overflow-hidden">
+        <div class="absolute inset-0 -z-10">
+            <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold-400 to-transparent"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 scroll-reveal">
+                <div class="inline-block px-5 py-2 rounded-full bg-accent-100 dark:bg-accent-900/20 text-accent-700 dark:text-accent-400 text-sm font-semibold tracking-wide uppercase mb-4">
+                    Contacto
+                </div>
+                <h2 class="font-serif text-4xl md:text-5xl font-bold text-primary-900 dark:text-cream mb-6">
+                    Agende su consulta con el <span class="gradient-text">Dr. W Ponce</span>
+                </h2>
+                <p class="text-lg text-primary-600 dark:text-cream/70 font-light">
+                    Atención personalizada y confidencial. Contácteme para resolver sus dudas o agendar su cita.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Info de Contacto -->
+                <div class="lg:col-span-1 space-y-6 scroll-reveal">
+                    <div class="bg-cream dark:bg-primary-800 p-6 rounded-2xl border border-gold-200/30 dark:border-gold-700/20 hover:shadow-xl transition cursor-pointer group" onclick="window.open('https://wa.me/584163808270?text=Hola%20Dr.%20W%20Ponce,%20me%20gustaría%20agendar%20una%20consulta', '_blank')">
+                        <div class="w-14 h-14 bg-green-500 rounded-xl flex items-center justify-center text-white text-2xl mb-4 group-hover:scale-110 transition shadow-lg">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <h3 class="font-bold text-primary-900 dark:text-cream mb-1 text-lg">WhatsApp</h3>
+                        <p class="text-primary-600 dark:text-cream/60 text-sm mb-2">Respuesta inmediata</p>
+                        <span class="text-accent-600 dark:text-accent-400 font-semibold">0416-3808270</span>
+                    </div>
+
+                    <div class="bg-cream dark:bg-primary-800 p-6 rounded-2xl border border-gold-200/30 dark:border-gold-700/20 hover:shadow-xl transition cursor-pointer group" onclick="window.location.href='mailto:wponce146@gmail.com'">
+                        <div class="w-14 h-14 bg-primary-700 rounded-xl flex items-center justify-center text-white text-2xl mb-4 group-hover:scale-110 transition shadow-lg">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3 class="font-bold text-primary-900 dark:text-cream mb-1 text-lg">Correo Electrónico</h3>
+                        <p class="text-primary-600 dark:text-cream/60 text-sm mb-2">Consultas detalladas</p>
+                        <span class="text-accent-600 dark:text-accent-400 font-semibold text-sm break-all">wponce146@gmail.com</span>
+                    </div>
+
+                    <div class="bg-cream dark:bg-primary-800 p-6 rounded-2xl border border-gold-200/30 dark:border-gold-700/20 hover:shadow-xl transition cursor-pointer group" onclick="window.open('https://maps.google.com', '_blank')">
+                        <div class="w-14 h-14 bg-accent-600 rounded-xl flex items-center justify-center text-white text-2xl mb-4 group-hover:scale-110 transition shadow-lg">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3 class="font-bold text-primary-900 dark:text-cream mb-1 text-lg">Consultorio</h3>
+                        <p class="text-primary-600 dark:text-cream/60 text-sm mb-2">Venezuela</p>
+                        <span class="text-accent-600 dark:text-accent-400 font-semibold">Ver ubicación</span>
+                    </div>
+
+                    <!-- Redes Sociales -->
+                    <div class="pt-4">
+                        <h4 class="font-semibold text-primary-900 dark:text-cream mb-4 uppercase tracking-wider text-sm">Sígueme</h4>
+                        <div class="flex gap-4">
+                            <a href="#" class="w-12 h-12 rounded-full bg-primary-700 text-white flex items-center justify-center hover:scale-110 transition shadow-md" onclick="window.open('https://linkedin.com', '_blank')">
+                                <i class="fab fa-linkedin-in text-lg"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-600 to-pink-600 text-white flex items-center justify-center hover:scale-110 transition shadow-md" onclick="window.open('https://instagram.com', '_blank')">
+                                <i class="fab fa-instagram text-lg"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 rounded-full bg-primary-400 text-white flex items-center justify-center hover:scale-110 transition shadow-md" onclick="window.open('https://twitter.com', '_blank')">
+                                <i class="fab fa-twitter text-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulario -->
+                <div class="lg:col-span-2 scroll-reveal" style="transition-delay: 100ms;">
+                    <form class="bg-cream dark:bg-primary-800 p-8 rounded-3xl border border-gold-200/30 dark:border-gold-700/20 shadow-xl" onsubmit="handleSubmit(event)">
+                        <div class="grid md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label class="block text-sm font-medium text-primary-700 dark:text-cream/80 mb-2 uppercase tracking-wide text-xs">Nombre completo</label>
+                                <input type="text" required class="w-full px-4 py-3 rounded-xl border border-primary-200 dark:border-primary-600 bg-white dark:bg-primary-700 text-primary-900 dark:text-cream focus:ring-2 focus:ring-gold-400 focus:border-transparent transition" placeholder="Su nombre">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-primary-700 dark:text-cream/80 mb-2 uppercase tracking-wide text-xs">Teléfono</label>
+                                <input type="tel" required class="w-full px-4 py-3 rounded-xl border border-primary-200 dark:border-primary-600 bg-white dark:bg-primary-700 text-primary-900 dark:text-cream focus:ring-2 focus:ring-gold-400 focus:border-transparent transition" placeholder="0416-1234567">
+                            </div>
+                        </div>
+
+                        <div class="mb-6">
+                            <label class="block text-sm font-medium text-primary-700 dark:text-cream/80 mb-2 uppercase tracking-wide text-xs">Correo electrónico</label>
+                            <input type="email" required class="w-full px-4 py-3 rounded-xl border border-primary-200 dark:border-primary-600 bg-white dark:bg-primary-700 text-primary-900 dark:text-cream focus:ring-2 focus:ring-gold-400 focus:border-transparent transition" placeholder="su@email.com">
+                        </div>
+
+                        <div class="mb-6">
+                            <label class="block text-sm font-medium text-primary-700 dark:text-cream/80 mb-2 uppercase tracking-wide text-xs">Tipo de consulta</label>
+                            <select class="w-full px-4 py-3 rounded-xl border border-primary-200 dark:border-primary-600 bg-white dark:bg-primary-700 text-primary-900 dark:text-cream focus:ring-2 focus:ring-gold-400 focus:border-transparent transition">
+                                <option>Medicina General - Primera consulta</option>
+                                <option>Medicina General - Control</option>
+                                <option>Medicina Ocupacional - Examen de ingreso</option>
+                                <option>Medicina Ocupacional - Examen periódico</option>
+                                <option>Medicina Ocupacional - Examen de egreso</option>
+                                <option>Visita domiciliaria</option>
+                                <option>Certificado médico</option>
+                                <option>Otro</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-6">
+                            <label class="block text-sm font-medium text-primary-700 dark:text-cream/80 mb-2 uppercase tracking-wide text-xs">Mensaje</label>
+                            <textarea rows="4" class="w-full px-4 py-3 rounded-xl border border-primary-200 dark:border-primary-600 bg-white dark:bg-primary-700 text-primary-900 dark:text-cream focus:ring-2 focus:ring-gold-400 focus:border-transparent transition" placeholder="Describa el motivo de su consulta..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full btn-primary text-white font-bold py-4 rounded-xl hover:shadow-xl transition transform flex items-center justify-center gap-3 text-lg">
+                            <i class="fas fa-paper-plane"></i>
+                            <span class="tracking-wide">Enviar solicitud</span>
+                        </button>
+
+                        <p class="text-center text-sm text-primary-500 dark:text-cream/50 mt-4">
+                            <i class="fas fa-lock mr-1"></i>
+                            Información protegida con confidencialidad médica
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary-950 text-cream py-12 border-t border-gold-700/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-2">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-primary-800 to-accent-700 rounded-full flex items-center justify-center border-2 border-gold-500">
+                            <i class="fas fa-user-md text-gold-400 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-serif text-2xl font-bold text-cream">Dr. W Ponce</h3>
+                            <p class="text-xs text-gold-400 uppercase tracking-widest">Medicina Integral & Ocupacional</p>
+                        </div>
+                    </div>
+                    <p class="text-cream/60 text-sm leading-relaxed max-w-md font-light">
+                        Médico especialista venezolano dedicado a la excelencia en atención médica integral y ocupacional, con más de una década de experiencia al servicio de la salud.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4 text-gold-400 uppercase tracking-wider text-sm">Enlaces</h4>
+                    <ul class="space-y-2 text-sm text-cream/70">
+                        <li><a href="#inicio" class="hover:text-gold-400 transition">Inicio</a></li>
+                        <li><a href="#sobre-mi" class="hover:text-gold-400 transition">Sobre Mí</a></li>
+                        <li><a href="#servicios" class="hover:text-gold-400 transition">Servicios</a></li>
+                        <li><a href="https://wa.me/584163808270" target="_blank" class="hover:text-gold-400 transition">WhatsApp</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-4 text-gold-400 uppercase tracking-wider text-sm">Horario</h4>
+                    <ul class="space-y-2 text-sm text-cream/70">
+                        <li class="flex justify-between">
+                            <span>Lunes - Viernes:</span>
+                            <span class="text-cream">8:00 - 18:00</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Sábados:</span>
+                            <span class="text-cream">9:00 - 13:00</span>
+                        </li>
+                        <li class="flex justify-between text-gold-400">
+                            <span>Emergencias:</span>
+                            <span>24/7</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-primary-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-sm text-cream/50">
+                    © 2024 Dr. W Ponce. Todos los derechos reservados.
+                </p>
+                <div class="flex gap-6 text-sm text-cream/50">
+                    <a href="#" class="hover:text-gold-400 transition">Privacidad</a>
+                    <a href="#" class="hover:text-gold-400 transition">Términos</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div id="serviceModal" class="fixed inset-0 z-50 hidden overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div class="fixed inset-0 bg-primary-900/80 transition-opacity backdrop-blur-sm" aria-hidden="true" onclick="closeModal()"></div>
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+            <div class="inline-block align-bottom bg-white dark:bg-primary-800 rounded-2xl text-left overflow-hidden shadow-2xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full border border-gold-200/50 dark:border-gold-700/30">
+                <div class="bg-white dark:bg-primary-800 px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <div class="sm:flex sm:items-start">
+                        <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full">
+                            <h3 class="text-2xl leading-6 font-bold text-primary-900 dark:text-cream mb-4 font-serif" id="modal-title">Detalles del Servicio</h3>
+                            <div class="mt-2" id="modal-content"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-cream dark:bg-primary-900/50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse border-t border-gold-200/30 dark:border-gold-700/20">
+                    <button type="button" class="w-full inline-flex justify-center rounded-xl border border-transparent shadow-sm px-4 py-2 bg-gradient-to-r from-primary-800 to-accent-700 text-base font-medium text-white hover:shadow-lg focus:outline-none sm:ml-3 sm:w-auto sm:text-sm tracking-wide" onclick="window.open('https://wa.me/584163808270?text=Hola%20Dr.%20W%20Ponce,%20me%20gustaría%20agendar%20una%20cita', '_blank'); closeModal();">
+                        Agendar cita
+                    </button>
+                    <button type="button" class="mt-3 w-full inline-flex justify-center rounded-xl border border-primary-300 dark:border-primary-600 shadow-sm px-4 py-2 bg-white dark:bg-primary-800 text-base font-medium text-primary-700 dark:text-cream hover:bg-primary-50 dark:hover:bg-primary-700 focus:outline-none sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm" onclick="closeModal()">
+                        Cerrar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botón flotante WhatsApp -->
+    <a href="https://wa.me/584163808270?text=Hola%20Dr.%20W%20Ponce,%20me%20gustaría%20agendar%20una%20consulta" target="_blank" 
+       class="fixed bottom-6 right-6 bg-green-500 text-white w-16 h-16 rounded-full shadow-2xl flex items-center justify-center text-3xl hover:scale-110 hover:shadow-green-500/50 transition z-40 animate-bounce border-4 border-white dark:border-primary-800">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+        }
+
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-lg');
+            } else {
+                navbar.classList.remove('shadow-lg');
+            }
+        });
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    if (entry.target.querySelector('.counter')) {
+                        startCounters(entry.target);
+                    }
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach((el) => observer.observe(el));
+
+        function startCounters(container) {
+            const counters = container.querySelectorAll('.counter');
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const duration = 2000;
+                const step = target / (duration / 16);
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += step;
+                    if (current >= target) {
+                        counter.textContent = target + (target > 100 ? '+' : '');
+                        clearInterval(timer);
+                    } else {
+                        counter
