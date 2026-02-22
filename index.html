@@ -242,9 +242,10 @@
             </div>
 
             <div class="relative">
+                <!-- AQUÍ ESTÁ TU FOTO - LÍNEA CAMBIADA -->
                 <div class="relative z-10 bg-white dark:bg-primary-800 rounded-3xl shadow-2xl p-3 transform rotate-1 hover:rotate-0 transition duration-700 border border-gold-200/50 dark:border-gold-700/30">
                     <div class="bg-primary-50 dark:bg-primary-900 rounded-2xl overflow-hidden aspect-[4/5] relative group">
-                        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=800&auto=format&fit=crop&q=80" alt="Dr. W Ponce" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
+                        <img src="https://i.ibb.co/520fG9x/dr-w-ponce.jpg" alt="Dr. W Ponce - Médico Especialista" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
                         <div class="absolute inset-0 bg-gradient-to-t from-primary-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
                         <div class="absolute bottom-6 left-6 right-6 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition duration-500">
                             <div class="bg-white/95 dark:bg-primary-800/95 backdrop-blur-sm p-4 rounded-xl border-l-4 border-gold-500">
@@ -312,8 +313,9 @@
             <div class="grid md:grid-cols-2 gap-16 items-center">
                 <div class="scroll-reveal relative">
                     <div class="absolute -inset-4 bg-gradient-to-r from-primary-600 to-accent-600 rounded-3xl opacity-10 blur-2xl"></div>
+                    <!-- AQUÍ TAMBIÉN TU FOTO EN LA SECCIÓN SOBRE MÍ -->
                     <div class="relative bg-white dark:bg-primary-800 p-3 rounded-3xl shadow-2xl border border-gold-200/30 dark:border-gold-700/20">
-                        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&auto=format&fit=crop&q=80" alt="Dr. W Ponce" class="rounded-2xl w-full object-cover h-[600px]">
+                        <img src="https://i.ibb.co/520fG9x/dr-w-ponce.jpg" alt="Dr. W Ponce" class="rounded-2xl w-full object-cover h-[600px]">
                     </div>
                     
                     <div class="absolute -bottom-6 -right-6 bg-white dark:bg-primary-800 p-6 rounded-2xl shadow-xl border-l-4 border-gold-500 max-w-xs">
@@ -927,4 +929,106 @@
                         counter.textContent = target + (target > 100 ? '+' : '');
                         clearInterval(timer);
                     } else {
-                        counter
+                        counter.textContent = Math.floor(current);
+                    }
+                }, 16);
+            });
+        }
+
+        function showServiceDetail(type) {
+            const modal = document.getElementById('serviceModal');
+            const title = document.getElementById('modal-title');
+            const content = document.getElementById('modal-content');
+            
+            if (type === 'general') {
+                title.textContent = 'Medicina General Integral';
+                content.innerHTML = `
+                    <div class="space-y-4 text-primary-700 dark:text-cream/80">
+                        <p class="leading-relaxed">Atención médica integral que considera al paciente de manera holística, atendiendo aspectos físicos, emocionales y sociales para un diagnóstico y tratamiento completo.</p>
+                        
+                        <h4 class="font-bold text-primary-900 dark:text-cream mt-4 text-lg">Servicios incluidos:</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-accent-500 mt-1"></i> Consulta médica completa con historia clínica detallada</li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-accent-500 mt-1"></i> Examen físico integral y evaluación de signos vitales</li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-accent-500 mt-1"></i> Prevención y detección temprana de enfermedades crónicas</li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-accent-500 mt-1"></i> Manejo integral de enfermedades crónicas no transmisibles</li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-accent-500 mt-1"></i> Valoraciones pre-operatorias y certificados de salud</li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-accent-500 mt-1"></i> Remisiones a especialistas cuando sea necesario</li>
+                        </ul>
+                        
+                        <div class="bg-primary-50 dark:bg-primary-700/30 p-4 rounded-lg mt-4 border-l-4 border-gold-500">
+                            <p class="text-sm"><strong>Nota:</strong> La duración de la consulta inicial es de 45-60 minutos para garantizar una atención completa y personalizada.</p>
+                        </div>
+                    </div>
+                `;
+            } else if (type === 'ocupacional') {
+                title.textContent = 'Medicina Ocupacional';
+                content.innerHTML = `
+                    <div class="space-y-4 text-primary-700 dark:text-cream/80">
+                        <p class="leading-relaxed">Servicios especializados para empresas venezolanas, enfocados en la prevención de riesgos laborales, promoción de la salud y cumplimiento normativo de excelencia.</p>
+                        
+                        <h4 class="font-bold text-primary-900 dark:text-cream mt-4 text-lg">Servicios para empresas:</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-gold-500 mt-1"></i> Exámenes médicos de ingreso, periódicos y de egreso</li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-gold-500 mt-1"></i> Valoraciones de aptitud física y mental para cargos específicos</li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-gold-500 mt-1"></i> Evaluaciones de riesgos psicosociales en el trabajo</li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-gold-500 mt-1"></i> Programas de vigilancia epidemiológica laboral</li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-gold-500 mt-1"></i> Investigación de accidentes de trabajo</li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-gold-500 mt-1"></i> Asesoría en cumplimiento de la LOPCYMAT</li>
+                        </ul>
+                        
+                        <div class="bg-accent-50 dark:bg-accent-900/20 p-4 rounded-lg mt-4 border-l-4 border-accent-500">
+                            <p class="text-sm"><strong>Beneficio:</strong> Reducción del ausentismo laboral, mejora en la productividad y cumplimiento legal para su empresa.</p>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('serviceModal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        function handleSubmit(e) {
+            e.preventDefault();
+            
+            const btn = e.target.querySelector('button[type="submit"]');
+            const originalContent = btn.innerHTML;
+            
+            btn.innerHTML = '<i class="fas fa-check-circle"></i> ¡Mensaje enviado!';
+            btn.classList.remove('btn-primary');
+            btn.classList.add('bg-green-500');
+            
+            setTimeout(() => {
+                btn.innerHTML = originalContent;
+                btn.classList.add('btn-primary');
+                btn.classList.remove('bg-green-500');
+                e.target.reset();
+            }, 3000);
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                }
+            });
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+    </script>
+</body>
+</html>
